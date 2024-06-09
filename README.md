@@ -82,9 +82,13 @@ Machine Learning Projects
 This repository includes several hands-on projects to apply the concepts learned:
 
 Project 1: Regression Analysis
+
 Project 2: Classification Tasks
+
 Project 3: Clustering Analysis
+
 Project 4: Natural Language Processing
+
 Project 5: Deep Learning with Neural Networks
 
 
