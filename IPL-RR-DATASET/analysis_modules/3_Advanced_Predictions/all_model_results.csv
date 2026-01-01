@@ -1,0 +1,7 @@
+Model,R2,RMSE,Task,Accuracy
+Ridge Regression,0.051705974221450846,41.566201715601515,MVP Prediction,
+Random Forest,0.33996803965530187,34.67778234411084,MVP Prediction,
+Gradient Boosting,0.059712137927247944,41.39036426952526,MVP Prediction,
+Logistic Regression,,,Match Outcome,0.5248677248677248
+Random Forest,,,Match Outcome,0.5386243386243387
+Gradient Boosting,,,Match Outcome,0.5164021164021164

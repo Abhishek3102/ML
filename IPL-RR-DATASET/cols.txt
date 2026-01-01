@@ -1,0 +1,40 @@
+--- matches.csv ---
+['comp_id', 'match_id', 'match_format', 'match_number', 'match_date', 'stage', 'match_time_ist', 'venue_id', 'venue_name', 'venue_country', 'home_team_id', 'home_team', 'away_team_id', 'away_team', 'home_team_captain_id', 'away_team_captain_id', 'toss_win_team_id', 'toss_opted', 'first_inn_bat_team_id', 'player_of_the_match', 'is_a_DLS_affected_game', 'first_inn_revised_balls', 'second_inn_revised_balls', 'revised_target', 'win_team_id', 'result']
+{'comp_id': 2915, 'match_id': 41979, 'match_format': 'T20I', 'match_number': 5, 'match_date': '08/11/25', 'stage': 'Others', 'match_time_ist': '14:00:00', 'venue_id': 13, 'venue_name': 'Brisbane Cricket Ground', 'venue_country': 'Australia', 'home_team_id': 20, 'home_team': 'Australia', 'away_team_id': 18, 'away_team': 'India', 'home_team_captain_id': 818, 'away_team_captain_id': 1699, 'toss_win_team_id': 20, 'toss_opted': 'Fielding', 'first_inn_bat_team_id': 18, 'player_of_the_match': 0, 'is_a_DLS_affected_game': 0, 'first_inn_revised_balls': nan, 'second_inn_revised_balls': nan, 'revised_target': nan, 'win_team_id': nan, 'result': 'No Result'}
+
+--- player_match_stats.csv ---
+['match_id', 'player_id', 'player_name', 'match_date', 'batting_order', 'Dismissal_Status', 'runs_scored', 'balls_faced', 'strike_rate', 'no_of_sixes', 'no_of_fours', 'overs_bowled', 'runs_conceded', 'wicket_taken', 'maiden_overs_bowled', 'dot_balls_bowled', 'economy_rate', 'number_of_catches_taken', 'number_of_stumping']
+{'match_id': 41979, 'player_id': 6281, 'player_name': 'Abhishek Sharma', 'match_date': '08/11/25', 'batting_order': 1, 'Dismissal_Status': 2, 'runs_scored': 23, 'balls_faced': 13, 'strike_rate': 176.92, 'no_of_sixes': 1, 'no_of_fours': 1, 'overs_bowled': 0, 'runs_conceded': 0, 'wicket_taken': 0, 'maiden_overs_bowled': 0, 'dot_balls_bowled': 0, 'economy_rate': nan, 'number_of_catches_taken': 0, 'number_of_stumping': 0}
+
+--- players.csv ---
+['player_id', 'player_name', 'bowling_type', 'bowling_hand', 'batting_type', 'batting_hand', 'date_of_birth', 'is_wicket_keeper', 'nationality']
+{'player_id': 70456, 'player_name': 'Sandeep Khatri Chettri', 'bowling_type': 'Right-arm medium', 'bowling_hand': 'R', 'batting_type': 'Right-hand bat', 'batting_hand': 'R', 'date_of_birth': nan, 'is_wicket_keeper': 0, 'nationality': nan}
+
+--- matches.csv ---
+['comp_id', 'match_id', 'match_format', 'match_number', 'match_date', 'stage', 'match_time_ist', 'venue_id', 'venue_name', 'venue_country', 'home_team_id', 'home_team', 'away_team_id', 'away_team', 'home_team_captain_id', 'away_team_captain_id', 'toss_win_team_id', 'toss_opted', 'first_inn_bat_team_id', 'player_of_the_match', 'is_a_DLS_affected_game', 'first_inn_revised_balls', 'second_inn_revised_balls', 'revised_target', 'win_team_id', 'result']
+{'comp_id': 2915, 'match_id': 41979, 'match_format': 'T20I', 'match_number': 5, 'match_date': '08/11/25', 'stage': 'Others', 'match_time_ist': '14:00:00', 'venue_id': 13, 'venue_name': 'Brisbane Cricket Ground', 'venue_country': 'Australia', 'home_team_id': 20, 'home_team': 'Australia', 'away_team_id': 18, 'away_team': 'India', 'home_team_captain_id': 818, 'away_team_captain_id': 1699, 'toss_win_team_id': 20, 'toss_opted': 'Fielding', 'first_inn_bat_team_id': 18, 'player_of_the_match': 0, 'is_a_DLS_affected_game': 0, 'first_inn_revised_balls': nan, 'second_inn_revised_balls': nan, 'revised_target': nan, 'win_team_id': nan, 'result': 'No Result'}
+
+--- player_match_stats.csv ---
+['match_id', 'player_id', 'player_name', 'match_date', 'batting_order', 'Dismissal_Status', 'runs_scored', 'balls_faced', 'strike_rate', 'no_of_sixes', 'no_of_fours', 'overs_bowled', 'runs_conceded', 'wicket_taken', 'maiden_overs_bowled', 'dot_balls_bowled', 'economy_rate', 'number_of_catches_taken', 'number_of_stumping']
+{'match_id': 41979, 'player_id': 6281, 'player_name': 'Abhishek Sharma', 'match_date': '08/11/25', 'batting_order': 1, 'Dismissal_Status': 2, 'runs_scored': 23, 'balls_faced': 13, 'strike_rate': 176.92, 'no_of_sixes': 1, 'no_of_fours': 1, 'overs_bowled': 0, 'runs_conceded': 0, 'wicket_taken': 0, 'maiden_overs_bowled': 0, 'dot_balls_bowled': 0, 'economy_rate': nan, 'number_of_catches_taken': 0, 'number_of_stumping': 0}
+
+--- players.csv ---
+['player_id', 'player_name', 'bowling_type', 'bowling_hand', 'batting_type', 'batting_hand', 'date_of_birth', 'is_wicket_keeper', 'nationality']
+{'player_id': 70456, 'player_name': 'Sandeep Khatri Chettri', 'bowling_type': 'Right-arm medium', 'bowling_hand': 'R', 'batting_type': 'Right-hand bat', 'batting_hand': 'R', 'date_of_birth': nan, 'is_wicket_keeper': 0, 'nationality': nan}
+
+--- matches.csv ---
+['comp_id', 'match_id', 'match_format', 'match_number', 'match_date', 'stage', 'match_time_ist', 'venue_id', 'venue_name', 'venue_country', 'home_team_id', 'home_team', 'away_team_id', 'away_team', 'home_team_captain_id', 'away_team_captain_id', 'toss_win_team_id', 'toss_opted', 'first_inn_bat_team_id', 'player_of_the_match', 'is_a_DLS_affected_game', 'first_inn_revised_balls', 'second_inn_revised_balls', 'revised_target', 'win_team_id', 'result']
+{'comp_id': 2915, 'match_id': 41979, 'match_format': 'T20I', 'match_number': 5, 'match_date': '08/11/25', 'stage': 'Others', 'match_time_ist': '14:00:00', 'venue_id': 13, 'venue_name': 'Brisbane Cricket Ground', 'venue_country': 'Australia', 'home_team_id': 20, 'home_team': 'Australia', 'away_team_id': 18, 'away_team': 'India', 'home_team_captain_id': 818, 'away_team_captain_id': 1699, 'toss_win_team_id': 20, 'toss_opted': 'Fielding', 'first_inn_bat_team_id': 18, 'player_of_the_match': 0, 'is_a_DLS_affected_game': 0, 'first_inn_revised_balls': nan, 'second_inn_revised_balls': nan, 'revised_target': nan, 'win_team_id': nan, 'result': 'No Result'}
+
+--- player_match_stats.csv ---
+['match_id', 'player_id', 'player_name', 'match_date', 'batting_order', 'Dismissal_Status', 'runs_scored', 'balls_faced', 'strike_rate', 'no_of_sixes', 'no_of_fours', 'overs_bowled', 'runs_conceded', 'wicket_taken', 'maiden_overs_bowled', 'dot_balls_bowled', 'economy_rate', 'number_of_catches_taken', 'number_of_stumping']
+{'match_id': 41979, 'player_id': 6281, 'player_name': 'Abhishek Sharma', 'match_date': '08/11/25', 'batting_order': 1, 'Dismissal_Status': 2, 'runs_scored': 23, 'balls_faced': 13, 'strike_rate': 176.92, 'no_of_sixes': 1, 'no_of_fours': 1, 'overs_bowled': 0, 'runs_conceded': 0, 'wicket_taken': 0, 'maiden_overs_bowled': 0, 'dot_balls_bowled': 0, 'economy_rate': nan, 'number_of_catches_taken': 0, 'number_of_stumping': 0}
+
+--- players.csv ---
+['player_id', 'player_name', 'bowling_type', 'bowling_hand', 'batting_type', 'batting_hand', 'date_of_birth', 'is_wicket_keeper', 'nationality']
+{'player_id': 70456, 'player_name': 'Sandeep Khatri Chettri', 'bowling_type': 'Right-arm medium', 'bowling_hand': 'R', 'batting_type': 'Right-hand bat', 'batting_hand': 'R', 'date_of_birth': nan, 'is_wicket_keeper': 0, 'nationality': nan}
+
+--- player_competition_team_mapping.csv ---
+['player_id', 'player_name', 'comp_id', 'team_id', 'team_name']
+{'player_id': 4369, 'player_name': 'Shai Hope', 'comp_id': 3097, 'team_id': 3878, 'team_name': 'Pretoria Capitals'}
+

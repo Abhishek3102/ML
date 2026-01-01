@@ -1,0 +1,12 @@
+# Models
+models/*.pkl
+*.pkl
+
+# Dependencies
+node_modules/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
