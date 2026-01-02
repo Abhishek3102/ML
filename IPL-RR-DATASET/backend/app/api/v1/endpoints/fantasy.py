@@ -37,9 +37,12 @@ def load_rosters():
         
         # Load Player Metadata (Batting/Bowling Styles)
         df_p = pd.read_csv(PLAYERS_PATH)
-        # Handle duplicates in players.csv?
+        # Handle duplicates
         df_p = df_p.drop_duplicates(subset=['player_name'])
-        player_meta = df_p.set_index('player_name')[['batting_type', 'bowling_type']].to_dict('index')
+        
+        # Columns to keep
+        cols = ['batting_type', 'bowling_type', 'batting_hand', 'bowling_hand', 'date_of_birth', 'nationality']
+        player_meta = df_p.set_index('player_name')[cols].to_dict('index')
         
         _roster_cache = rosters
         _player_meta_cache = player_meta
@@ -48,6 +51,22 @@ def load_rosters():
     except Exception as e:
         print(f"Error loading rosters: {e}")
         return {}, {}
+    
+def calculate_age(dob: str):
+    if not isinstance(dob, str): return "N/A"
+    try:
+        # Formats might vary, e.g., DD/MM/YY or YYYY-MM-DD
+        # CSV shows 06/09/95. Assuming DD/MM/YY
+        parts = dob.split('/')
+        if len(parts) == 3:
+            year = int(parts[2])
+            # Pivot for 2-digit years. 95 -> 1995, 05 -> 2005. 
+            # Simple heuristic: if > 30, 19xx, else 20xx (valid for current cricket players)
+            full_year = 1900 + year if year > 40 else 2000 + year
+            return 2026 - full_year # Current 'system' time is 2026 per context
+        return "N/A"
+    except:
+        return "N/A"
 
 @router.post("/generate")
 def generate_fantasy_team(req: FantasyRequest):
@@ -73,12 +92,10 @@ def generate_fantasy_team(req: FantasyRequest):
     all_teams = list(rosters.keys())
 
     if not squad_a:
-         # Fuzzy match A
          matches_a = [t for t in all_teams if team_a in t]
          if matches_a: squad_a = rosters[matches_a[0]]
 
     if not squad_b:
-         # Fuzzy match B
          matches_b = [t for t in all_teams if team_b in t]
          if matches_b: squad_b = rosters[matches_b[0]]
 
@@ -96,11 +113,7 @@ def generate_fantasy_team(req: FantasyRequest):
     except: s_enc = 0
 
     for player in all_players:
-        meta = player_meta.get(player, {'batting_type': 'Right-hand bat', 'bowling_type': 'Right-arm medium'})
-        
-        # Parse styles for encoder (which expects "Right Hand Bat_Right-arm medium" format)
-        # Note: metadata might be "Right-hand bat" but encoder expects "Right Hand Bat". Normalization needed?
-        # Let's simple-case it or try raw.
+        meta = player_meta.get(player, {})
         
         b_type = meta.get('batting_type', 'Right Hand Bat') 
         bw_type = meta.get('bowling_type', 'Right-arm medium')
@@ -109,18 +122,21 @@ def generate_fantasy_team(req: FantasyRequest):
         style_str = f"{b_type}_{bw_type}"
         
         try: st_enc = enc['style'].transform([style_str])[0]
-        except: st_enc = 0 # Fallback to 0 if style not seen in training
+        except: st_enc = 0 
         
         # Predict
-        # Feature vector: [batting_order, venue, season, cluster, style]
-        # Batting order is unknown. Assume average (5).
         feats = [[5, v_enc, s_enc, 0, st_enc]] 
         score = reg.predict(feats)[0]
         
         predictions.append({
             "player": player,
             "team": team_a if player in squad_a else team_b,
-            "role": b_type, # Simplification
+            "role": b_type, 
+            "bowling_style": bw_type,
+            "batting_hand": meta.get('batting_hand', 'N/A'),
+            "bowling_hand": meta.get('bowling_hand', 'N/A'),
+            "age": calculate_age(meta.get('date_of_birth', '')),
+            "nationality": meta.get('nationality', 'Unknown'),
             "predicted_points": float(score)
         })
         

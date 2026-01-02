@@ -54,7 +54,7 @@ def get_metadata():
     #   The user wants "Many things". I should really add Team ID to the model if possible.
     #   But for now, I must stick to what the model expects, OR return the available features.
     
-    # Extract Batting and Bowling styles from the combined 'style' encoder
+    # Extract Batting and Bowling styles
     style_classes = list(encoders['style'].classes_)
     batting_styles = set()
     bowling_styles = set()
@@ -62,17 +62,34 @@ def get_metadata():
     for s in style_classes:
         parts = s.split('_')
         if len(parts) >= 2:
-            # Assumes last part is bowling, rest is batting (in case batting has underscores, though unlikely with standard formatting)
-            # Actually, the logic in predict_mvp is f"{batting}_{bowling}".
-            # Let's assume the split is reliable, or handle potential errors.
-            # Most likely names don't have underscores.
             batting_styles.add(parts[0])
             bowling_styles.add(parts[1])
-            
+
+    # Load Teams, Venues, Seasons strictly from matches.csv (IPL Data)
+    try:
+        matches_df = pd.read_csv(os.path.join(BASE_DIR, "matches.csv"))
+        
+        # Teams
+        teams_1 = matches_df['team1'].dropna().unique().tolist()
+        teams_2 = matches_df['team2'].dropna().unique().tolist()
+        all_teams = sorted(list(set(teams_1 + teams_2)))
+        
+        # Venues
+        venues = sorted(matches_df['venue'].dropna().unique().tolist())
+        
+        # Seasons
+        seasons = sorted(matches_df['season'].astype(str).unique().tolist())
+        
+    except Exception as e:
+        print(f"Error loading metadata from matches.csv: {e}")
+        all_teams = ["Rajasthan Royals", "Chennai Super Kings", "Mumbai Indians"]
+        venues = ["Wankhede Stadium", "Eden Gardens"]
+        seasons = ["2023", "2024"]
+
     return {
         "venues": venues,
         "seasons": seasons,
-        "teams": ["Rajasthan Royals", "Chennai Super Kings", "Mumbai Indians"],
+        "teams": all_teams,
         "batting_styles": sorted(list(batting_styles)),
         "bowling_styles": sorted(list(bowling_styles))
     }
